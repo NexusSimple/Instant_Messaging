@@ -41,6 +41,12 @@ const AuthForm = () => {
     }
   };
 
+  const socialAction = (action: string) => {
+    setIsLoading(true);
+
+    // NextAuth Social Sign in
+  };
+
   return <div>AuthForm</div>;
 };
 

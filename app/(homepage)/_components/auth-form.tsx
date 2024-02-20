@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/app/components/button";
 import Input from "@/app/components/inputs/input";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -78,6 +79,9 @@ const AuthForm = () => {
             label="Password"
             type="password"
           />
+          <div>
+            <Button></Button>
+          </div>
         </form>
       </div>
     </div>

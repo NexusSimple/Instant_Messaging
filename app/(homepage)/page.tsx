@@ -12,7 +12,7 @@ export default function Home() {
         bg-gray-100
       "
     >
-      Instant Messaging App
+      <div className="sm:mx-auto sm:w-full sm:max-w-md"></div>
     </div>
   );
 }

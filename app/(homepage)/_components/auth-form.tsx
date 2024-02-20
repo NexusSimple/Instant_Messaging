@@ -47,7 +47,7 @@ const AuthForm = () => {
     // NextAuth Social Sign in
   };
 
-  return <div>AuthForm</div>;
+  return <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">AuthForm</div>;
 };
 
 export default AuthForm;

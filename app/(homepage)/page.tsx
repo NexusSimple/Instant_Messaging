@@ -22,6 +22,18 @@ export default function Home() {
           src="/images/logo.svg"
           alt="Logo"
         />
+        <h2
+          className="
+            mt-6 
+            text-center 
+            text-3xl 
+            font-bold 
+            tracking-tight 
+            text-gray-900
+          "
+        >
+          Login to your account
+        </h2>
       </div>
     </div>
   );

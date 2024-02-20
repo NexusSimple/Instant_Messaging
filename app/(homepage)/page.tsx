@@ -1,3 +1,4 @@
+import AuthForm from "@/app/(homepage)/_components/auth-form";
 import Image from "next/image";
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
           Login to your account
         </h2>
       </div>
-      {/* TODO : <AuthForm /> */}
+      <AuthForm />
     </div>
   );
 }

@@ -21,7 +21,22 @@ const Input = ({
   errors,
   disabled,
 }: InputProps) => {
-  return <div>Input</div>;
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="
+          block 
+          text-sm 
+          font-medium 
+          leading-6 
+          text-gray-900
+        "
+      >
+        {label}
+      </label>
+    </div>
+  );
 };
 
 export default Input;

@@ -61,7 +61,7 @@ const AuthForm = () => {
         "
       >
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          <Input label="Email" />
+          <Input label="Email" register={register} />
         </form>
       </div>
     </div>

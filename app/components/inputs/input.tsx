@@ -15,7 +15,7 @@ interface InputProps {
 const Input = ({
   label,
   id,
-  type,
+  type = "text", // Default of "text"
   required,
   register,
   errors,

@@ -35,6 +35,7 @@ export default function Home() {
           Login to your account
         </h2>
       </div>
+      {/* TODO : <AuthForm /> */}
     </div>
   );
 }

@@ -35,6 +35,7 @@ const Input = ({
       >
         {label}
       </label>
+      <div className="mt-2"></div>
     </div>
   );
 };

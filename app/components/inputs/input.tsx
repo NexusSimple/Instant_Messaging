@@ -36,7 +36,13 @@ const Input = ({
         {label}
       </label>
       <div className="mt-2">
-        <input />
+        <input
+          id={id}
+          type={type}
+          autoComplete={id}
+          disabled={disabled}
+          {...register(id, { required })}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import AuthSocialButton from "@/app/(homepage)/_components/auth-social-button";
 import Button from "@/app/components/button";
 import Input from "@/app/components/inputs/input";
 import { useCallback, useState } from "react";

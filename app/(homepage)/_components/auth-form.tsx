@@ -74,6 +74,7 @@ const AuthForm = () => {
             id="email"
             label="Email address"
             type="email"
+            disabled={isLoading}
           />
           <Input
             register={register}
@@ -81,6 +82,7 @@ const AuthForm = () => {
             id="password"
             label="Password"
             type="password"
+            disabled={isLoading}
           />
           <div>
             {/* Since this Button has a type of "submit", we don't need an explicit onClick function for this Button, because this Button is inside of the form element. Which means that when we click on the Button , it is going to trigger onSubmit event  */}

@@ -80,7 +80,7 @@ const AuthForm = () => {
             type="password"
           />
           <div>
-            <Button></Button>
+            <Button>Click me</Button>
           </div>
         </form>
       </div>

@@ -5,7 +5,8 @@ import Button from "@/app/components/button";
 import Input from "@/app/components/inputs/input";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { BsGithub, BsGoogle } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -88,7 +89,10 @@ const AuthForm = () => {
             </Button>
           </div>
         </form>
+
+        {/* Container div for the Social buttons and a heading for the social buttons "Or continue with" */}
         <div className="mt-6">
+          {/* This div is for the horizontal line on both sides + the "Or continue with" text in between */}
           <div className="relative">
             <div
               className="
@@ -107,17 +111,20 @@ const AuthForm = () => {
             </div>
           </div>
 
+          {/* This div is for the 2 AuthSocialButton's */}
           <div className="mt-6 flex gap-2">
             <AuthSocialButton
-              icon={BsGithub}
+              icon={AiFillGithub}
               onClick={() => socialAction("github")}
             />
             <AuthSocialButton
-              icon={BsGoogle}
+              icon={FcGoogle}
               onClick={() => socialAction("google")}
             />
           </div>
         </div>
+
+        {/* Container div for the Back Button QUESTION + Back Button LABEL */}
         <div
           className="
             flex 
@@ -129,11 +136,14 @@ const AuthForm = () => {
             text-gray-500
           "
         >
+          {/* Back Button Question */}
           <div>
             {variant === "LOGIN"
               ? "New to SwiftMsg?"
               : "Already have an account?"}
           </div>
+
+          {/* Back Button Label */}
           <div onClick={toggleVariant} className="underline cursor-pointer">
             {variant === "LOGIN" ? "Create an account" : "Login"}
           </div>

@@ -80,7 +80,10 @@ const AuthForm = () => {
             type="password"
           />
           <div>
-            <Button>{variant === "LOGIN" ? "Sign In" : "Register"}</Button>
+            {/* Since this Button has a type of "submit", we don't need an explicit onClick function for this Button, because this Button is inside of the form element. Which means that when we click on the Button , it is going to trigger onSubmit event  */}
+            <Button disabled={isLoading} fullWidth type="submit">
+              {variant === "LOGIN" ? "Sign In" : "Register"}
+            </Button>
           </div>
         </form>
       </div>

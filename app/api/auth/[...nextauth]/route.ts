@@ -35,6 +35,8 @@ export const authOptions: AuthOptions = {
           },
         });
 
+        // If the entered email during sign in doesn't exist in the DB, it means !user is true
+        // Also if user registered with Social Auths, so no password and now the user is trying to login via credentials.
         if (!user || !user?.hashedPassword) {
           throw new Error("Invalid Credentials");
         }

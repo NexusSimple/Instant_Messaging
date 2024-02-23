@@ -5,7 +5,7 @@ import Button from "@/app/components/button";
 import Input from "@/app/components/inputs/input";
 import axios from "axios";
 import { signIn, useSession } from "next-auth/react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { AiFillGithub } from "react-icons/ai";
@@ -17,6 +17,13 @@ const AuthForm = () => {
   const session = useSession();
   const [variant, setVariant] = useState<Variant>("LOGIN");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Check if the current session status is authenticated
+    if (session?.status === "authenticated") {
+      console.log("Authenticated");
+    }
+  }, [session?.status]);
 
   const toggleVariant = useCallback(() => {
     if (variant === "LOGIN") {

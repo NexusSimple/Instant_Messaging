@@ -4,7 +4,7 @@ import AuthSocialButton from "@/app/(homepage)/_components/auth-social-button";
 import Button from "@/app/components/button";
 import Input from "@/app/components/inputs/input";
 import axios from "axios";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -14,6 +14,7 @@ import { FcGoogle } from "react-icons/fc";
 type Variant = "LOGIN" | "REGISTER";
 
 const AuthForm = () => {
+  const session = useSession();
   const [variant, setVariant] = useState<Variant>("LOGIN");
   const [isLoading, setIsLoading] = useState(false);
 

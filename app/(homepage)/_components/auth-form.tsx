@@ -38,7 +38,7 @@ const AuthForm = () => {
     setIsLoading(true);
 
     if (variant === "REGISTER") {
-      // Axios Register
+      
     }
 
     if (variant === "LOGIN") {

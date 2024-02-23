@@ -23,5 +23,8 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(user);
-  } catch (error) {}
+  } catch (error: any) {
+    console.log("[REGISTER]", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
 }

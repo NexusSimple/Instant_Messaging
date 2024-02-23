@@ -1,7 +1,7 @@
-"use client";
+
 
 import EmptyState from "@/app/components/empty-state";
-import { signOut } from "next-auth/react";
+
 
 const Users = () => {
   return (

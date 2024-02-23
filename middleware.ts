@@ -10,3 +10,5 @@ export default withAuth({
 export const config = {
   matcher: ["/users/:path*"], // Including "/:path*" means "/users/anything/anything2/anything3" etc
 };
+
+//  The ":path*" part is a dynamic route parameter that matches any subsequent paths after "/users/".

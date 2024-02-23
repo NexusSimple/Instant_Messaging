@@ -54,6 +54,7 @@ const AuthForm = () => {
       axios
         .post("/api/register", data)
         .then(() => {
+          signIn("credentials", data);
           toast.success("Registered successfully");
         })
         .catch(() => {

@@ -72,6 +72,7 @@ const AuthForm = () => {
           }
           if (callback?.ok) {
             toast.success("Logged in Successfully");
+            router.push("/users");
           }
         })
         .finally(() => {

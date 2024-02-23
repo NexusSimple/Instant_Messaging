@@ -6,6 +6,7 @@ import Input from "@/app/components/inputs/input";
 import axios from "axios";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
@@ -39,7 +40,9 @@ const AuthForm = () => {
     setIsLoading(true);
 
     if (variant === "REGISTER") {
-      axios.post("/api/register", data);
+      axios.post("/api/register", data).catch(() => {
+        toast.error("Something went wrong");
+      });
     }
 
     if (variant === "LOGIN") {

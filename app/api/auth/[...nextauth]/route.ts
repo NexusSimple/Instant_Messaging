@@ -67,3 +67,6 @@ export const authOptions: AuthOptions = {
 
 
 const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
+//whether the incoming request is a GET or POST request, it will be handled by the same handler function. This is a convenient way to handle multiple HTTP methods in a single API route in Next.js.

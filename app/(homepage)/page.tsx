@@ -23,7 +23,7 @@ export default function Home() {
           src="/images/logo.svg"
           alt="Logo"
         />
-        <h2
+        {/* <h2
           className="
             mt-6 
             text-center 
@@ -34,7 +34,7 @@ export default function Home() {
           "
         >
           Login to your account
-        </h2>
+        </h2> */}
       </div>
       <AuthForm />
     </div>

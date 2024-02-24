@@ -26,7 +26,18 @@ const DesktopSidebar = () => {
 "
     >
       <nav className="mt-4 flex flex-col justify-between">
-        <ul role="list" className="flex flex-col items-center space-y-1"></ul>
+        <ul role="list" className="flex flex-col items-center space-y-1">
+          {routes.map((item) => (
+            <DesktopItem
+              key={item.label}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+              active={item.active}
+              onClick={item.onClick}
+            />
+          ))}
+        </ul>
       </nav>
     </div>
   );

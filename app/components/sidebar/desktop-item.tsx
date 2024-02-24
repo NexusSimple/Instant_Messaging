@@ -15,6 +15,11 @@ const DesktopItem = ({
   onClick,
   active,
 }: DesktopItemProps) => {
+  const handleClick = () => {
+    if (onClick) {
+      return onClick();
+    }
+  };
   return <div>Desktop</div>;
 };
 

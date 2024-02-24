@@ -1,5 +1,6 @@
 "use client";
 
+import Avatar from "@/app/components/avatar";
 import DesktopItem from "@/app/components/sidebar/desktop-item";
 import useRoutes from "@/app/hooks/useRoutes";
 import { User } from "@prisma/client";

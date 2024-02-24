@@ -1,6 +1,20 @@
-"use client"
+"use client";
 
-const DesktopItem = () => {
+interface DesktopItemProps {
+  label: string;
+  icon: any;
+  href: string;
+  onClick?: () => void;
+  active?: boolean;
+}
+
+const DesktopItem = ({
+  label,
+  icon,
+  href,
+  onClick,
+  active,
+}: DesktopItemProps) => {
   return <div>Desktop</div>;
 };
 

@@ -23,7 +23,17 @@ const MobileFooter = () => {
         border-t-[1px] 
         lg:hidden
     "
-    ></div>
+    >
+      {routes.map((route) => (
+        <MobileItem
+          key={route.href}
+          href={route.href}
+          active={route.active}
+          icon={route.icon}
+          onClick={route.onClick}
+        />
+      ))}
+    </div>
   );
 };
 

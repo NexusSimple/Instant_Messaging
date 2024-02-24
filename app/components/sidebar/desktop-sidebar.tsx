@@ -25,7 +25,7 @@ const DesktopSidebar = () => {
   justify-between
 "
     >
-      DesktopSidebar
+      <nav className="mt-4 flex flex-col justify-between"></nav>
     </div>
   );
 };

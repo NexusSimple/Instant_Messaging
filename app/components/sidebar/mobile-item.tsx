@@ -6,6 +6,11 @@ interface MobileItemProps {
 }
 
 const MobileItem = ({ href, icon: Icon, active, onClick }: MobileItemProps) => {
+  const handleClick = () => {
+    if (onClick) {
+      return onClick();
+    }
+  };
   return <div>MobileItem</div>;
 };
 

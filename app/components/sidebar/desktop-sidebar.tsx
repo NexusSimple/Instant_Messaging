@@ -1,5 +1,6 @@
 "use client";
 
+import DesktopItem from "@/app/components/sidebar/desktop-item";
 import useRoutes from "@/app/hooks/useRoutes";
 import { useState } from "react";
 

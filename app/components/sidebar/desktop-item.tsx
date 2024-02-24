@@ -13,7 +13,7 @@ interface DesktopItemProps {
 
 const DesktopItem = ({
   label,
-  icon,
+  icon: Icon,
   href,
   onClick,
   active,
@@ -23,10 +23,12 @@ const DesktopItem = ({
       return onClick();
     }
   };
-  return <li onClick={handleClick} key={label}>
-    <Link
+  return (
+    <li onClick={handleClick} key={label}>
+      <Link
         href={href}
-        className={clsx(`
+        className={clsx(
+          `
             group 
             flex 
             gap-x-3 
@@ -39,12 +41,13 @@ const DesktopItem = ({
             hover:text-black 
             hover:bg-gray-100
           `,
-            active && 'bg-gray-100 text-black'
-          )}
+          active && "bg-gray-100 text-black"
+        )}
       >
-
+        <Icon className="h-6 w-6 shrink-0" aria-hidden="true" />
       </Link>
-  </li>;
+    </li>
+  );
 };
 
 export default DesktopItem;

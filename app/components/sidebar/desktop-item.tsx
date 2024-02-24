@@ -20,7 +20,7 @@ const DesktopItem = ({
       return onClick();
     }
   };
-  return <div>Desktop</div>;
+  return <li onClick={handleClick} key={label}></li>;
 };
 
 export default DesktopItem;

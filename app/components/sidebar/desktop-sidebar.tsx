@@ -45,7 +45,12 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
           ))}
         </ul>
       </nav>
-      <nav className="mt-4 flex flex-col justify-between items-center"></nav>
+      <nav className="mt-4 flex flex-col justify-between items-center">
+        <div
+          onClick={() => setIsOpen(true)}
+          className="cursor-pointer hover:opacity-75 transition"
+        ></div>
+      </nav>
     </div>
   );
 };

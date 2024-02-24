@@ -45,6 +45,7 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
           ))}
         </ul>
       </nav>
+      <nav className="mt-4 flex flex-col justify-between items-center"></nav>
     </div>
   );
 };

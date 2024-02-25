@@ -63,7 +63,11 @@ const ConversationList = ({
         </div>
         {/* TODO : Map through the items state and for each item render a ConversationBox component */}
         {items.map((item) => (
-          <ConversationBox key={item.id} />
+          <ConversationBox
+            key={item.id}
+            data={item}
+            selected={conversationId === item.id}
+          />
         ))}
       </div>
     </aside>

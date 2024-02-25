@@ -1,5 +1,6 @@
 "use client";
 
+import UserBox from "@/app/users/components/user-box";
 import { User } from "@prisma/client";
 
 interface UserListProps {
@@ -35,6 +36,9 @@ const UserList = ({ items }: UserListProps) => {
             People
           </div>
         </div>
+        {items.map((item) => (
+          <UserBox key={item.id} />
+        ))}
       </div>
     </aside>
   );

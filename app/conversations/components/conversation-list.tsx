@@ -1,3 +1,5 @@
+"use client";
+
 import { Conversation, User } from "@prisma/client";
 
 interface ConversationListProps {

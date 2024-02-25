@@ -28,7 +28,26 @@ const UserBox = ({ data }: UserBoxProps) => {
         setIsLoading(false);
       });
   }, [data, router]);
-  return <div>User</div>;
+  return (
+    <div
+      onClick={handleClick}
+      className="
+        w-full 
+        relative 
+        flex 
+        items-center 
+        space-x-3 
+        bg-white 
+        p-3 
+        hover:bg-neutral-100
+        rounded-lg
+        transition
+        cursor-pointer
+      "
+    >
+      User
+    </div>
+  );
 };
 
 export default UserBox;

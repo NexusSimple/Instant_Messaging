@@ -2,6 +2,7 @@
 
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { FullConversationType } from "@/app/types";
+import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
@@ -65,7 +66,26 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
     return "Started a conversation";
   }, [lastMessage]);
 
-  return <div>Conversation Box</div>;
+  return (
+    <div
+      onClick={handleClick}
+      className={clsx(
+        `
+        w-full 
+        relative 
+        flex 
+        items-center 
+        space-x-3 
+        p-3 
+        hover:bg-neutral-100
+        rounded-lg
+        transition
+        cursor-pointer
+        `,
+        selected ? "bg-neutral-100" : "bg-white"
+      )}
+    ></div>
+  );
 };
 
 export default ConversationBox;

@@ -1,9 +1,10 @@
 "use client";
 
-import { Conversation, User } from "@prisma/client";
+import { FullConversationType } from "@/app/types";
+import { User } from "@prisma/client";
 
 interface ConversationListProps {
-  initialItems: Conversation[];
+  initialItems: FullConversationType[];
   users: User[];
   title?: string;
 }

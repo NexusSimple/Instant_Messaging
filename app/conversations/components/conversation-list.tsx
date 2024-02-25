@@ -2,6 +2,7 @@
 
 import { FullConversationType } from "@/app/types";
 import { User } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface ConversationListProps {
@@ -16,6 +17,8 @@ const ConversationList = ({
   title,
 }: ConversationListProps) => {
   const [items, setItems] = useState(initialItems);
+
+  const router = useRouter();
 
   return <div>Conversation List</div>;
 };

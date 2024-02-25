@@ -2,6 +2,7 @@
 
 import { FullConversationType } from "@/app/types";
 import { User } from "@prisma/client";
+import { useState } from "react";
 
 interface ConversationListProps {
   initialItems: FullConversationType[];
@@ -14,6 +15,8 @@ const ConversationList = ({
   users,
   title,
 }: ConversationListProps) => {
+  const [items, setItems] = useState(initialItems);
+
   return <div>Conversation List</div>;
 };
 

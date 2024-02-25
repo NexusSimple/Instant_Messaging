@@ -1,5 +1,6 @@
 "use client";
 
+import useConversation from "@/app/hooks/useConversation";
 import { FullConversationType } from "@/app/types";
 import { User } from "@prisma/client";
 import { useRouter } from "next/navigation";
@@ -19,6 +20,8 @@ const ConversationList = ({
   const [items, setItems] = useState(initialItems);
 
   const router = useRouter();
+
+  const { conversationId, isOpen } = useConversation();
 
   return <div>Conversation List</div>;
 };

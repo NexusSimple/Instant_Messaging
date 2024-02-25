@@ -1,5 +1,6 @@
 "use client";
 
+import ConversationBox from "@/app/conversations/components/conversation-box";
 import useConversation from "@/app/hooks/useConversation";
 import { FullConversationType } from "@/app/types";
 import { User } from "@prisma/client";
@@ -61,6 +62,9 @@ const ConversationList = ({
           </div>
         </div>
         {/* TODO : Map through the items state and for each item render a ConversationBox component */}
+        {items.map((item) => (
+          <ConversationBox key={item.id} />
+        ))}
       </div>
     </aside>
   );

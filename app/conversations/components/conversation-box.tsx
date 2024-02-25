@@ -4,6 +4,7 @@ import Avatar from "@/app/components/avatar";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { FullConversationType } from "@/app/types";
 import clsx from "clsx";
+import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
@@ -87,6 +88,27 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
       )}
     >
       <Avatar user={otherUser} />
+      <div className="min-w-0 flex-1">
+        <div className="focus:outline-none">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-md font-medium text-gray-900">
+              {data.name || otherUser.name}
+              {/* data.name is for Group name */}
+            </p>
+            {lastMessage?.createdAt && (
+              <p
+                className="
+                  text-xs 
+                  text-gray-400 
+                  font-light
+                "
+              >
+                {format(new Date(lastMessage.createdAt), "p")}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

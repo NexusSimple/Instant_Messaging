@@ -3,6 +3,7 @@
 import useConversation from "@/app/hooks/useConversation";
 import { FullConversationType } from "@/app/types";
 import { User } from "@prisma/client";
+import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -23,7 +24,25 @@ const ConversationList = ({
 
   const { conversationId, isOpen } = useConversation();
 
-  return <div>Conversation List</div>;
+  return (
+    <aside
+      className={clsx(
+        `
+        fixed 
+        inset-y-0 
+        pb-20
+        lg:pb-0
+        lg:left-20 
+        lg:w-80 
+        lg:block
+        overflow-y-auto 
+        border-r 
+        border-gray-200 
+        `,
+        isOpen ? "hidden" : "block w-full left-0"
+      )}
+    ></aside>
+  );
 };
 
 export default ConversationList;

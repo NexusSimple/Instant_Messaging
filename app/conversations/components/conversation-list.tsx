@@ -6,6 +6,7 @@ import { User } from "@prisma/client";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { MdOutlineGroupAdd } from "react-icons/md";
 
 interface ConversationListProps {
   initialItems: FullConversationType[];
@@ -41,7 +42,27 @@ const ConversationList = ({
         `,
         isOpen ? "hidden" : "block w-full left-0"
       )}
-    ></aside>
+    >
+      <div className="px-5">
+        <div className="flex justify-between mb-4 pt-4">
+          <div className="text-2xl font-bold text-neutral-800">Messages</div>
+          <div
+            className="
+                rounded-full 
+                p-2 
+                bg-gray-100 
+                text-gray-600 
+                cursor-pointer 
+                hover:opacity-75 
+                transition
+              "
+          >
+            <MdOutlineGroupAdd size={20} />
+          </div>
+        </div>
+        {/* TODO : Map through the items state and for each item render a ConversationBox component */}
+      </div>
+    </aside>
   );
 };
 

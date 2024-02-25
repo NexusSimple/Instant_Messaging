@@ -1,6 +1,12 @@
 "use client";
 
-const UserBox = () => {
+import { User } from "@prisma/client";
+
+interface UserBoxProps {
+  data: User;
+}
+
+const UserBox = ({ data }: UserBoxProps) => {
   return <div>User</div>;
 };
 

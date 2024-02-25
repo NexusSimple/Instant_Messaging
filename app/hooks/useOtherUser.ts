@@ -16,11 +16,11 @@ const useOtherUser = (
     const currentUserEmail = session?.data?.user?.email;
 
     // Filter out the current user from the conversation
-    const otherUser = conversation.users.find(
+    const otherUser = conversation.users.filter(
       (user) => user.email !== currentUserEmail
     );
 
-    return otherUser;
+    return otherUser[0];
   }, [session?.data?.user?.email, conversation.users]);
 
   return otherUser;

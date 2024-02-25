@@ -1,5 +1,6 @@
 "use client";
 
+import Avatar from "@/app/components/avatar";
 import { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -45,7 +46,7 @@ const UserBox = ({ data }: UserBoxProps) => {
         cursor-pointer
       "
     >
-      User
+      <Avatar user={data} />
     </div>
   );
 };

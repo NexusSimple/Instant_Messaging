@@ -37,7 +37,7 @@ const UserList = ({ items }: UserListProps) => {
           </div>
         </div>
         {items.map((item) => (
-          <UserBox key={item.id} />
+          <UserBox key={item.id} data={item} />
         ))}
       </div>
     </aside>

@@ -21,7 +21,22 @@ const UserList = ({ items }: UserListProps) => {
     border-gray-200
     block w-full left-0
   "
-    ></aside>
+    >
+      <div className="px-5">
+        <div className="flex-col">
+          <div
+            className="
+              text-2xl 
+              font-bold 
+              text-neutral-800 
+              py-4
+            "
+          >
+            People
+          </div>
+        </div>
+      </div>
+    </aside>
   );
 };
 

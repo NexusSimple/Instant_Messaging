@@ -1,3 +1,5 @@
+"use client";
+
 const UserBox = () => {
   return <div>User</div>;
 };

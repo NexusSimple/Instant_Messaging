@@ -1,5 +1,6 @@
 "use client";
 
+import Avatar from "@/app/components/avatar";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { FullConversationType } from "@/app/types";
 import clsx from "clsx";
@@ -84,7 +85,9 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
         `,
         selected ? "bg-neutral-100" : "bg-white"
       )}
-    ></div>
+    >
+      <Avatar user={otherUser} />
+    </div>
   );
 };
 

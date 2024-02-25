@@ -65,6 +65,7 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
       return lastMessage?.body;
     }
 
+    // When no lastMessage exists 
     return "Started a conversation";
   }, [lastMessage]);
 

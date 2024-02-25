@@ -39,6 +39,50 @@ export async function POST(req: Request) {
 
       return NextResponse.json(newConversation);
     }
+
+    const exisitingConversations = await prismadb.conversation.findMany({
+      where: {
+        OR: [
+          {
+            userIds: {
+              equals: [currentUser.id, userId],
+            },
+          },
+          {
+            userIds: {
+              equals: [userId, currentUser.id],
+            },
+          },
+        ],
+      },
+    });
+    // https://chat.openai.com/share/a14a54ad-2d71-4af4-a056-2ae1c930daa9
+
+    const singleConversation = exisitingConversations[0];
+
+    if (singleConversation) {
+      return NextResponse.json(singleConversation);
+    }
+
+    const newConversation = await prismadb.conversation.create({
+      data: {
+        users: {
+          connect: [
+            {
+              id: currentUser.id,
+            },
+            {
+              id: userId,
+            },
+          ],
+        },
+      },
+      include: {
+        users: true,
+      },
+    });
+
+    return NextResponse.json(newConversation);
   } catch (error: any) {
     // console.log("[CONVERSATIONS]", error);
     return new NextResponse("Internal Server Error", { status: 500 });

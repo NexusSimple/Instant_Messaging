@@ -22,7 +22,7 @@ const UserBox = ({ data }: UserBoxProps) => {
       .post("/api/conversations", {
         userId: data.id,
       })
-      .then(() => {
+      .then((data) => {
         router.push(`/conversations/${data.data.id}`);
       })
       .finally(() => {

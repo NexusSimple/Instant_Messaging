@@ -1,3 +1,5 @@
+"use client";
+
 import { FullMessageType } from "@/app/types";
 
 interface MessageBoxProps {

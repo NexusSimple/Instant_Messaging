@@ -2,6 +2,7 @@ import getConversationById from "@/app/actions/getConversationById";
 import getMessages from "@/app/actions/getMessages";
 import EmptyState from "@/app/components/empty-state";
 import Body from "@/app/conversations/[conversationId]/components/body";
+import Form from "@/app/conversations/[conversationId]/components/form";
 import Header from "@/app/conversations/[conversationId]/components/header";
 
 interface ConversationIdParams {
@@ -27,6 +28,7 @@ const ConversationId = async ({ params }: { params: ConversationIdParams }) => {
       <div className="h-full flex flex-col">
         <Header conversation={conversation} />
         <Body />
+        <Form />
       </div>
     </div>
   );

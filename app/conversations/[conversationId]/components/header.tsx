@@ -1,3 +1,5 @@
+"use client";
+
 import Avatar from "@/app/components/avatar";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { Conversation, User } from "@prisma/client";

@@ -1,9 +1,10 @@
 "use client";
 
 import useOtherUser from "@/app/hooks/useOtherUser";
+import { Dialog, Transition } from "@headlessui/react";
 import { Conversation, User } from "@prisma/client";
 import { format } from "date-fns";
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 
 interface ProfileDrawerProps {
   isOpen: boolean;
@@ -33,7 +34,11 @@ const ProfileDrawer = ({ isOpen, onClose, data }: ProfileDrawerProps) => {
     return "Active";
   }, [data]);
 
-  return <div></div>;
+  return (
+    <Transition.Root show={isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-50" onClose={onClose}></Dialog>
+    </Transition.Root>
+  );
 };
 
 export default ProfileDrawer;

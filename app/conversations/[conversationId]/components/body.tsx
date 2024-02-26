@@ -1,5 +1,12 @@
 "use client";
-const Body = () => {
+
+import { FullMessageType } from "@/app/types";
+
+interface BodyProps {
+  initialMessages: FullMessageType[];
+}
+
+const Body = ({ initialMessages }: BodyProps) => {
   return <div>Body </div>;
 };
 

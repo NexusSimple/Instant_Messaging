@@ -46,7 +46,11 @@ const Form = () => {
         w-full
       "
     >
-      <CldUploadButton>
+      <CldUploadButton
+        options={{ maxFiles: 1 }}
+        onUpload={() => {}}
+        uploadPreset="jjhafhn3"
+      >
         <HiPhoto size={30} className="text-sky-500" />
       </CldUploadButton>
       <form

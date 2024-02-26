@@ -19,8 +19,7 @@ const ConversationId = async ({ params }: { params: ConversationIdParams }) => {
       </div>
     )
   }
-    return <div></div>
-  }
+    
   return <div>Conversation Id</div>;
 };
 

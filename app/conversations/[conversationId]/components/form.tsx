@@ -3,8 +3,10 @@
 import MessageInput from "@/app/conversations/[conversationId]/components/message-input";
 import useConversation from "@/app/hooks/useConversation";
 import axios from "axios";
+import { CldUploadButton } from "next-cloudinary";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { HiPaperAirplane } from "react-icons/hi";
+import { HiPhoto } from "react-icons/hi2";
 
 const Form = () => {
   const { conversationId } = useConversation();
@@ -44,6 +46,9 @@ const Form = () => {
         w-full
       "
     >
+      <CldUploadButton>
+        <HiPhoto size={30} className="text-sky-500" />
+      </CldUploadButton>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex items-center gap-2 lg:gap-4 w-full"

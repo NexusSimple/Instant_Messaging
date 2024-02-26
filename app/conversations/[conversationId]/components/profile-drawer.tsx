@@ -25,6 +25,14 @@ const ProfileDrawer = ({ isOpen, onClose, data }: ProfileDrawerProps) => {
     return data.name || otherUser.name;
   }, [data.name, otherUser.name]);
 
+  const statusText = useMemo(() => {
+    if (data.isGroup) {
+      return `${data.users.length} members`;
+    }
+
+    return "Active";
+  }, [data]);
+
   return <div></div>;
 };
 

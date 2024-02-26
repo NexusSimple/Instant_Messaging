@@ -1,5 +1,6 @@
 "use client";
 
+import MessageInput from "@/app/conversations/[conversationId]/components/message-input";
 import useConversation from "@/app/hooks/useConversation";
 import axios from "axios";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -47,6 +48,13 @@ const Form = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="flex items-center gap-2 lg:gap-4 w-full"
       >
+        <MessageInput
+          id="message"
+          register={register}
+          errors={errors}
+          required
+          placeholder="Write a message"
+        />
         <button
           type="submit"
           className="

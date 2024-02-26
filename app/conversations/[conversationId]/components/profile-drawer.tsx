@@ -20,6 +20,11 @@ const ProfileDrawer = ({ isOpen, onClose, data }: ProfileDrawerProps) => {
     return format(new Date(otherUser.createdAt), "PP");
   }, [otherUser.createdAt]);
 
+  // Group name or other user's name
+  const title = useMemo(() => {
+    return data.name || otherUser.name;
+  }, [data.name, otherUser.name]);
+
   return <div></div>;
 };
 

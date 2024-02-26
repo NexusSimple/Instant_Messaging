@@ -20,7 +20,7 @@ const Body = ({ initialMessages }: BodyProps) => {
     <div className="flex-1 overflow-y-auto">
       {messages.map((message, i) => (
         <MessageBox
-          isLast={i === messages.length - 1}
+          isLast={i === messages.length - 1}  // If the current messae is the last message
           key={message.id}
           data={message}
         />

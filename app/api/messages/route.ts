@@ -13,6 +13,7 @@ export async function POST(request: Request) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
+    // Create the new message in the DB
     const newMessage = await prismadb.message.create({
       include: {
         seen: true,
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
           connect: {
             id: currentUser.id,
           },
-        }, // Since the current user who has sent the message, so automatically push the current use to the array of "seen" users.
+        }, // Since the current user is the one who has sent the message, so automatically push the current user to the array of "seen" users.
       },
     });
 

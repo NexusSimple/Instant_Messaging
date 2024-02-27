@@ -2,6 +2,7 @@
 
 import Avatar from "@/app/components/avatar";
 import DesktopItem from "@/app/components/sidebar/desktop-item";
+import SettingsModal from "@/app/components/sidebar/settings-modal";
 import useRoutes from "@/app/hooks/useRoutes";
 import { User } from "@prisma/client";
 import { useState } from "react";
@@ -14,8 +15,14 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
   const routes = useRoutes();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div
-      className="
+    <>
+      <SettingsModal
+        currentUser={currentUser}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
+      <div
+        className="
   hidden 
   lg:fixed 
   lg:inset-y-0 
@@ -31,30 +38,31 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
   lg:flex-col
   justify-between
 "
-    >
-      <nav className="mt-4 flex flex-col justify-between">
-        <ul role="list" className="flex flex-col items-center space-y-1">
-          {routes.map((item) => (
-            <DesktopItem
-              key={item.label}
-              href={item.href}
-              label={item.label}
-              icon={item.icon}
-              active={item.active}
-              onClick={item.onClick}
-            />
-          ))}
-        </ul>
-      </nav>
-      <nav className="mt-4 flex flex-col justify-between items-center">
-        <div
-          onClick={() => setIsOpen(true)}
-          className="cursor-pointer hover:opacity-75 transition"
-        >
-          <Avatar user={currentUser} />
-        </div>
-      </nav>
-    </div>
+      >
+        <nav className="mt-4 flex flex-col justify-between">
+          <ul role="list" className="flex flex-col items-center space-y-1">
+            {routes.map((item) => (
+              <DesktopItem
+                key={item.label}
+                href={item.href}
+                label={item.label}
+                icon={item.icon}
+                active={item.active}
+                onClick={item.onClick}
+              />
+            ))}
+          </ul>
+        </nav>
+        <nav className="mt-4 flex flex-col justify-between items-center">
+          <div
+            onClick={() => setIsOpen(true)}
+            className="cursor-pointer hover:opacity-75 transition"
+          >
+            <Avatar user={currentUser} />
+          </div>
+        </nav>
+      </div>
+    </>
   );
 };
 

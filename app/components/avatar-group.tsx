@@ -10,6 +10,8 @@ interface AvatarGroupProps {
 const AvatarGroup: React.FC<AvatarGroupProps> = ({ 
     users = [] // Provide an Empty array as default , so that we don't have to use "?" in users?.slice(0,3)
  }) => {
+
+  // Select only the first 3 users from the list of users.
   const slicedUsers = users.slice(0, 3);
 
   const positionMap = {

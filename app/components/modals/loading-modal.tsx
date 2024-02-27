@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import React, { Fragment } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { ClipLoader } from 'react-spinners';
+import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { ClipLoader } from "react-spinners";
 
 const LoadingModal = () => {
   return (
+    // The LoadingModal is always going to be open so use "show" as true. But it will be rendered in a different way.
     <Transition.Root show as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={() => {}}>
         <Transition.Child
@@ -17,7 +18,7 @@ const LoadingModal = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div 
+          <div
             className="
               fixed 
               inset-0 
@@ -29,7 +30,7 @@ const LoadingModal = () => {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div 
+          <div
             className="
               flex 
               min-h-full 
@@ -56,7 +57,7 @@ const LoadingModal = () => {
         </div>
       </Dialog>
     </Transition.Root>
-  )
-}
+  );
+};
 
 export default LoadingModal;

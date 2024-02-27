@@ -21,6 +21,7 @@ const ConversationList = ({
   title,
 }: ConversationListProps) => {
   const [items, setItems] = useState(initialItems);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const router = useRouter();
 
@@ -48,6 +49,7 @@ const ConversationList = ({
         <div className="flex justify-between mb-4 pt-4">
           <div className="text-2xl font-bold text-neutral-800">Messages</div>
           <div
+            onClick={() => setIsModalOpen(true)}
             className="
                 rounded-full 
                 p-2 

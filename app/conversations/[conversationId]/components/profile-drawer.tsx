@@ -59,7 +59,9 @@ const ProfileDrawer = ({ isOpen, onClose, data }: ProfileDrawerProps) => {
                 leave="transform transition ease-in-out duration-500"
                 // leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
-              ></Transition.Child>
+              >
+                <Dialog.Panel className="pointer-events-auto w-screen max-w-md"></Dialog.Panel>
+              </Transition.Child>
             </div>
           </div>
         </div>

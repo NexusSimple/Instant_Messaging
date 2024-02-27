@@ -1,5 +1,6 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { prismadb } from "@/app/libs/prismadb";
+import { pusherServer } from "@/app/libs/pusher";
 import { NextResponse } from "next/server";
 
 interface ConversationIdParams {
@@ -63,6 +64,24 @@ export async function POST(
         seen: true,
       },
     });
+
+    // Update all connections with new seen
+    await pusherServer.trigger(currentUser.email, "conversation:update", {
+      id: conversationId,
+      message: [updatedMessage],
+    });
+
+    // If user has already seen the message, no need to go further
+    if (lastMessage.seenIds.indexOf(currentUser.id) !== -1) {
+      return NextResponse.json(existingConversation);
+    }
+
+    // Update last message seen
+    await pusherServer.trigger(
+      conversationId!,
+      "message:update",
+      updatedMessage
+    );
 
     return NextResponse.json(updatedMessage);
   } catch (error: any) {

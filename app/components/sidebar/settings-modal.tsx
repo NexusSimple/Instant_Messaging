@@ -2,7 +2,7 @@
 
 import Button from "@/app/components/button";
 import Input from "@/app/components/inputs/input";
-import Modal from "@/app/components/modals/Modal";
+import Modal from "@/app/components/modals/modal";
 import { User } from "@prisma/client";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";

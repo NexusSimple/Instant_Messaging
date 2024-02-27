@@ -21,7 +21,7 @@ interface SettingsModalProps {
 const SettingsModal: React.FC<SettingsModalProps> = ({
   isOpen,
   onClose,
-  currentUser = {},
+  currentUser,
 }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);

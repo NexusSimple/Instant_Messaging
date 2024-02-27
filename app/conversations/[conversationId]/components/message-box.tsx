@@ -1,6 +1,7 @@
 "use client";
 
 import Avatar from "@/app/components/avatar";
+import ImageModal from "@/app/conversations/[conversationId]/components/image-modal";
 import { FullMessageType } from "@/app/types";
 import clsx from "clsx";
 import { format } from "date-fns";
@@ -50,6 +51,7 @@ const MessageBox = ({ data, isLast }: MessageBoxProps) => {
           </div>
         </div>
         <div className={message}>
+          <ImageModal src={data.image} isOpen={imageModalOpen} onClose={() => setImageModalOpen(false)} />
           {data.image ? (
             <Image
               alt="Image"

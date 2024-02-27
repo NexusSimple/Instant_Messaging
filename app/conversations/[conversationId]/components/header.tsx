@@ -73,7 +73,7 @@ const Header = ({ conversation }: HeaderProps) => {
         </div>
         <HiEllipsisHorizontal
           size={32}
-          onClick={() => {}}
+          onClick={() => setDrawerOpen(true)}
           className="
       text-sky-500
       cursor-pointer

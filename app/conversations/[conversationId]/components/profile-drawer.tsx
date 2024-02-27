@@ -60,7 +60,9 @@ const ProfileDrawer = ({ isOpen, onClose, data }: ProfileDrawerProps) => {
                 // leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="pointer-events-auto w-screen max-w-md"></Dialog.Panel>
+                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl"></div>
+                </Dialog.Panel>
               </Transition.Child>
             </div>
           </div>

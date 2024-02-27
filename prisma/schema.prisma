@@ -59,8 +59,8 @@ model Conversation {
   name String?
   isGroup Boolean?
   
-  messagesIds String[] @db.ObjectId
-  messages Message[]
+  messagesIds String[] @db.ObjectId // The id's of the messages for a particular conversation are stored in this field
+  messages Message[]  // One conversation has many messages
 
   userIds String[] @db.ObjectId
   users User[] @relation(fields: [userIds], references: [id])

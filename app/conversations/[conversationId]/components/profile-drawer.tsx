@@ -45,7 +45,9 @@ const ProfileDrawer = ({ isOpen, onClose, data }: ProfileDrawerProps) => {
           leave="ease-in duration-500"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
-        ></Transition.Child>
+        >
+          <div className="fixed inset-0 bg-black bg-opacity-40" />
+        </Transition.Child>
       </Dialog>
     </Transition.Root>
   );

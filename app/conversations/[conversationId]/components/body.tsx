@@ -5,6 +5,7 @@ import useConversation from "@/app/hooks/useConversation";
 import { pusherClient } from "@/app/libs/pusher";
 import { FullMessageType } from "@/app/types";
 import axios from "axios";
+import { find } from "lodash";
 import { useEffect, useRef, useState } from "react";
 
 interface BodyProps {
@@ -25,7 +26,7 @@ const Body = ({ initialMessages }: BodyProps) => {
   }, [conversationId]);
 
   useEffect(() => {
-    pusherClient.subscribe(conversationId)
+    pusherClient.subscribe(conversationId);
     bottomRef?.current?.scrollIntoView();
 
     const messageHandler = (message: FullMessageType) => {
@@ -36,31 +37,32 @@ const Body = ({ initialMessages }: BodyProps) => {
           return current;
         }
 
-        return [...current, message]
+        return [...current, message];
       });
-      
+
       bottomRef?.current?.scrollIntoView();
     };
 
     const updateMessageHandler = (newMessage: FullMessageType) => {
-      setMessages((current) => current.map((currentMessage) => {
-        if (currentMessage.id === newMessage.id) {
-          return newMessage;
-        }
-  
-        return currentMessage;
-      }))
-    };
-  
+      setMessages((current) =>
+        current.map((currentMessage) => {
+          if (currentMessage.id === newMessage.id) {
+            return newMessage;
+          }
 
-    pusherClient.bind('messages:new', messageHandler)
-    pusherClient.bind('message:update', updateMessageHandler);
+          return currentMessage;
+        })
+      );
+    };
+
+    pusherClient.bind("messages:new", messageHandler);
+    pusherClient.bind("message:update", updateMessageHandler);
 
     return () => {
-      pusherClient.unsubscribe(conversationId)
-      pusherClient.unbind('messages:new', messageHandler)
-      pusherClient.unbind('message:update', updateMessageHandler)
-    }
+      pusherClient.unsubscribe(conversationId);
+      pusherClient.unbind("messages:new", messageHandler);
+      pusherClient.unbind("message:update", updateMessageHandler);
+    };
   }, [conversationId]);
 
   return (

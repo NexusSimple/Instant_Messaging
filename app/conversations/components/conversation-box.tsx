@@ -1,6 +1,7 @@
 "use client";
 
 import Avatar from "@/app/components/avatar";
+import AvatarGroup from "@/app/components/avatar-group";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { FullConversationType } from "@/app/types";
 import clsx from "clsx";
@@ -65,7 +66,7 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
       return lastMessage?.body;
     }
 
-    // When no lastMessage exists 
+    // When no lastMessage exists
     return "Started a conversation";
   }, [lastMessage]);
 
@@ -88,7 +89,11 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
         selected ? "bg-neutral-100" : "bg-white"
       )}
     >
-      <Avatar user={otherUser} />
+      {data.isGroup ? (
+        <AvatarGroup users={data.users} />
+      ) : (
+        <Avatar user={otherUser} />
+      )}
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
           <div className="flex justify-between items-center mb-1">

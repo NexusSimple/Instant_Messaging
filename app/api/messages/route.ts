@@ -24,10 +24,10 @@ export async function POST(request: Request) {
         image: image,
         conversation: {
           connect: { id: conversationId },
-        },
+        }, // Connect this new message to the conversation "conversationId"
         sender: {
           connect: { id: currentUser.id },
-        },
+        }, // Connect this new message to the sender "currentUser.id" i.e. to the current user.
         seen: {
           connect: {
             id: currentUser.id,
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
         messages: {
           connect: {
             id: newMessage.id,
-          },
+          }, // Connect this conversation "conversationId" with the message "newMessage.id"
         },
       },
       include: {

@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    // Create the new message in the DB
+    // 👇  Create the new message in the DB
     const newMessage = await prismadb.message.create({
       include: {
         seen: true,
@@ -33,9 +33,11 @@ export async function POST(request: Request) {
             id: currentUser.id,
           },
         }, // Since the current user is the one who has sent the message, so automatically push the current user to the array of "seen" users.
+        // Or Connect this new message to the seen user "currentUser.id" i.e. to the current user as the seen user.
       },
     });
 
+    // 👇 Update the conversation to have the newly created message
     const updatedConversation = await prismadb.conversation.update({
       where: {
         id: conversationId,
@@ -60,6 +62,7 @@ export async function POST(request: Request) {
 
     // Add the "newMessage" to the conversation "conversationId" in Real Time.
     await pusherServer.trigger(conversationId, "messages:new", newMessage);
+    // https://chat.openai.com/share/3de83c50-1878-436d-95d7-2a8b48831cd3
 
     const lastMessage =
       updatedConversation.messages[updatedConversation.messages.length - 1];
@@ -70,6 +73,8 @@ export async function POST(request: Request) {
         messages: [lastMessage],
       });
     });
+    // https://chat.openai.com/share/3ffa3b3c-4f30-4ebc-94c9-0f1360c3f0d4
+
     return NextResponse.json(newMessage);
   } catch (error: any) {
     console.log("[MESSAGES]", error);

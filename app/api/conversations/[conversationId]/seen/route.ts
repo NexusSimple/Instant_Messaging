@@ -65,7 +65,7 @@ export async function POST(
       },
     });
 
-    // Update all connections with new seen
+    // Enable real time updating of the seen status of the message.
     await pusherServer.trigger(currentUser.email, "conversation:update", {
       id: conversationId,
       message: [updatedMessage],
@@ -76,7 +76,7 @@ export async function POST(
       return NextResponse.json(existingConversation);
     }
 
-    // Update last message seen
+    // Update the seen users of the last message in Real Time.
     await pusherServer.trigger(
       conversationId!,
       "message:update",
